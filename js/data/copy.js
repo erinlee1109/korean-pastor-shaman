@@ -1,0 +1,90 @@
+// All on-screen words in one place. Every entry is {en, ko}.
+// Screens never hard-code text; js/lib/i18n.js flags anything missing.
+
+export const COPY = {
+  intro: {
+    kicker: { en: 'FREE SPIRIT DIAGNOSIS', ko: '무료 영 진단' },
+    title: { en: 'We Diagnose\nYour Spirit', ko: '당신의 영(靈)을 진단해 드립니다' },
+    lead: {
+      en: 'God is watching over you.\nToday the Holy Spirit has made time especially for you.',
+      ko: '하나님께서 당신을 지켜보고 계십니다.\n성령께서 오늘 당신을 위해 특별히 시간을 내셨습니다.',
+    },
+    cta: { en: 'Receive a diagnosis', ko: '진단 받기' },
+    verse: {
+      en: 'Divided tongues, as of fire, appeared and rested on each one of them. (Acts 2:3)',
+      ko: '불의 혀처럼 갈라지는 것들이 보여 각 사람 위에 하나씩 임하여 있더니 (행 2:3)',
+    },
+  },
+  services: {
+    kicker: { en: 'OFFERING · ACCORDING TO YOUR FAITH', ko: '감사헌금 · 믿음의 분량대로' },
+    title: { en: 'What grace do you seek?', ko: '어떤 은혜를 구하십니까' },
+    note: { en: '* Offerings are given to God and are non-refundable', ko: '* 헌금은 하나님께 드리는 것이며 환불되지 않습니다' },
+    soldout: { en: 'Closed', ko: '마감' },
+    restricted: { en: 'Clergy only', ko: '교역자 전용' },
+  },
+  camera: {
+    title: { en: 'The Spirit Looks Upon You', ko: '성령께서 당신을 보십니다' },
+    loading: { en: 'Preparing the light…', ko: '빛을 준비하는 중…' },
+    permission: { en: 'The Spirit must see your face. Please allow the camera.', ko: '성령께서 당신의 얼굴을 보셔야 합니다. 카메라를 허용해 주십시오.' },
+    nocamera: { en: 'No camera was found.', ko: '카메라를 찾을 수 없습니다.' },
+    offline: { en: 'The Spirit could not be reached. Check the connection.', ko: '성령께 닿지 못했습니다. 연결을 확인해 주십시오.' },
+    align: { en: 'Place your face within the light', ko: '빛 안에 얼굴을 두십시오' },
+    hold: { en: 'Do not move. You are being seen', ko: '움직이지 마십시오. 보고 계십니다' },
+    lost: { en: 'The spirit wavers. Come back into the light', ko: '영이 흔들립니다. 빛 안으로 돌아오십시오' },
+    done: { en: 'You have been seen', ko: '당신은 보여졌습니다' },
+    denied: { en: 'The light could not reach you.', ko: '빛이 당신에게 닿지 못했습니다.' },
+    retry: { en: 'Try again', ko: '다시 시도' },
+    back: { en: 'Choose another grace', ko: '다른 은혜 선택' },
+    privacy: { en: 'No photo is taken. Nothing is recorded.', ko: '사진은 촬영되지 않으며 아무것도 기록되지 않습니다.' },
+  },
+  touch: {
+    title: { en: 'Lay Your Hand', ko: '손을 얹으십시오' },
+    // "touchpad" / 터치패드: what most people call it (Apple's "trackpad" / 트랙패드 isn't widely known)
+    instruct: { en: 'Lay your hand on the touchpad below the keyboard and press down. Do not let go.', ko: '키보드 아래 터치패드에 손을 얹고 꾹 누르십시오. 떼지 마십시오.' },
+    nudge: { en: 'Press anywhere on the touchpad. Hold it down.', ko: '터치패드 아무 곳이나 꾹 누르고 계십시오.' },
+    hint: { en: 'PRESS & HOLD', ko: '꾹 누르기' },
+    hold: { en: 'Do not stop. The spirits are surfacing', ko: '멈추지 마십시오. 영이 드러나고 있습니다' },
+    deeper: { en: 'Deeper. Press deeper', ko: '더 깊이. 더 깊이 누르십시오' },
+    lifted: { en: 'Lift your hand and the spirits hide', ko: '손을 떼면 영이 숨습니다' },
+    done: { en: 'The Spirit has touched you', ko: '성령께서 당신을 만지셨습니다' },
+    frequency: { en: 'SPIRIT FREQUENCY', ko: '영의 주파수' },
+    back: { en: 'Choose another grace', ko: '다른 은혜 선택' },
+  },
+  ritual: {
+    // first → (lineCount - 2 picked at random from lines) → last
+    first: { en: 'Discerning spirits…', ko: '영을 분별하는 중…' },
+    lines: [
+      { en: 'Searching your bloodline…', ko: '혈통을 살피는 중…' },
+      { en: 'Opening womb memories…', ko: '태중의 기억을 여는 중…' },
+      { en: 'Shining the light of the Holy Spirit…', ko: '성령의 빛을 비추는 중…' },
+      { en: 'Covering you with the blood of Jesus…', ko: '예수의 보혈로 덮는 중…' },
+      { en: 'Measuring the fullness of your spirit…', ko: '심령의 충만도를 재는 중…' },
+      { en: 'Listening for what the Spirit reveals…', ko: '성령께서 드러내시는 것을 듣는 중…' },
+      { en: 'Looking into what is hidden…', ko: '숨겨진 것을 들여다보는 중…' },
+    ],
+    last: { en: 'Writing down what was revealed…', ko: '드러난 것을 받아 적는 중…' },
+  },
+  result: {
+    title: { en: 'Spiritual Diagnosis (Soul · Spirit · Flesh)', ko: '영적 진단 (영혼 · 심령 · 육)' },
+    service: { en: 'Service', ko: '진단' },
+    date: { en: 'Date', ko: '날짜' },
+    spirits: { en: 'Spirits revealed', ko: '드러난 영' },
+    repent: { en: 'To repent', ko: '회개할 것' },
+    hidden: { en: '{n} more spirits were sensed but cannot be shown at this level.', ko: '그 외 {n}개의 영이 더 감지되었으나 이 진단으로는 볼 수 없습니다.' },
+    upsell: { en: 'Cast them out?', ko: '세력을 내보내시겠습니까?' },
+    upsellNote: { en: 'The work is not finished. What was revealed will return unless it is cast out.', ko: '아직 끝나지 않았습니다. 드러난 것은 내보내지 않으면 다시 돌아옵니다.' },
+    again: { en: 'Return', ko: '처음으로' },
+    disclaimer: { en: 'This artwork takes no real payment.', ko: '이 작품은 실제 결제를 받지 않습니다.' },
+  },
+  receipt: {
+    title: { en: 'Hallelujah', ko: '할렐루야' },
+    received: { en: 'Your offering has been received.', ko: '헌금이 접수되었습니다.' },
+    no: { en: 'Receipt no.', ko: '영수증 번호' },
+    item: { en: 'Offering', ko: '헌금 항목' },
+    amount: { en: 'Amount', ko: '금액' },
+    pray: { en: 'Pray without ceasing.', ko: '쉬지 말고 기도하십시오.' },
+    followup: { en: 'A follow-up diagnosis is recommended within 40 days.', ko: '40일 안에 재진단을 받으시기를 권합니다.' },
+    amen: { en: 'Amen', ko: '아멘' },
+    returning: { en: 'Returning to the beginning in {n}', ko: '{n}초 후 처음으로 돌아갑니다' },
+  },
+};

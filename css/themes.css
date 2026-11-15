@@ -1,0 +1,140 @@
+/* ─────────────────────────────────────────────────────────────
+   Theme tokens. Set data-theme="…" on <body> (or any element).
+   Every screen + figure reads ONLY these variables, so a theme swap
+   restyles the whole piece. Add a theme = copy a block, change values.
+   ───────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@400;700;900&family=Nanum+Myeongjo:wght@400;700;800&family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Hahmlet:wght@300;500;800&family=Noto+Serif+KR:wght@300;600;900&family=Archivo+Black&family=Caveat:wght@500;700&display=swap');
+
+:root {
+  /* 오방색 reference values (shared) */
+  --obang-blue: #1d4e9e;   /* 청 · east */
+  --obang-red: #c8102e;    /* 적 · south */
+  --obang-yellow: #f2b705; /* 황 · centre */
+  --obang-white: #f4f1ea;  /* 백 · west */
+  --obang-black: #141414;  /* 흑 · north */
+}
+
+/* 0 ─ 오방색 성령강림 · Obangsaek Pentecost  ← CHOSEN (canvas board 01)
+   Five-direction colours meet Pentecost's "tongues of fire". Flag-flat colour
+   fields, gold rays, revival-poster certainty: no room left for doubt. */
+[data-theme="obang-pentecost"] {
+  --bg: #F7F3EA;
+  --paper: #FFFFFF;
+  --ink: #141414;
+  --ink-soft: #6a655b;
+  --accent: #C8102E;          /* 적 赤 · south */
+  --accent-2: #1F3A8A;        /* 청 靑 · east */
+  --yellow: #F2B705;          /* 황 黃 · centre */
+  --gold: #C9A24B;            /* 금 · light of the Spirit */
+  --figure-ink: #141414;
+  --spirit-ink: #141414;
+  --spirit-knot: #C8102E;
+  --spirit-glow: none;
+  --ink-pen: #1F3A8A;
+  /* Latin face first; Hangul falls through to the Korean face */
+  --font-display: 'Archivo Black', 'Black Han Sans', sans-serif;
+  --font-body: 'Gowun Batang', serif;
+  --font-hand: 'Caveat', 'Nanum Pen Script', cursive;
+  --btn-bg: #C8102E;
+  --btn-ink: #FFFFFF;
+  --btn-border: 0;
+  --btn-glow: none;
+  --radius: 0;
+}
+
+/* 1 ─ 십자가 네온 · 오방 ─ Seoul night: rooftop neon crosses over 색동 stripes */
+[data-theme="neon-cross"] {
+  --bg: #07070b;
+  --paper: #111118;
+  --ink: #f4f1ea;
+  --ink-soft: #9a97a6;
+  --accent: #ff2b3a;          /* neon cross red */
+  --accent-2: #2f6bff;
+  --gold: #f2b705;
+  --figure-ink: #f4f1ea;
+  --spirit-ink: #ff2b3a;
+  --spirit-knot: #ff2b3a;
+  --spirit-glow: drop-shadow(0 0 2px #ff2b3a) drop-shadow(0 0 6px #ff2b3aaa);
+  --ink-pen: #f2b705;
+  --font-display: 'Black Han Sans', sans-serif;
+  --font-body: 'Gothic A1', sans-serif;
+  --font-hand: 'Nanum Pen Script', cursive;
+  --btn-bg: transparent;
+  --btn-ink: #ff2b3a;
+  --btn-border: 2px solid #ff2b3a;
+  --btn-glow: 0 0 12px #ff2b3a88, inset 0 0 12px #ff2b3a44;
+  --radius: 2px;
+}
+
+/* 2 ─ 성령의 빛 · 한지 ─ overexposed holy light on mulberry paper, gold & bells */
+[data-theme="holy-light"] {
+  --bg: #fbf7ee;
+  --paper: #fffdf7;
+  --ink: #3a2e1c;
+  --ink-soft: #8d7b5f;
+  --accent: #c9a227;          /* gold */
+  --accent-2: #6f8fc4;        /* pale 청 */
+  --gold: #c9a227;
+  --figure-ink: #5a4528;
+  --spirit-ink: #3a2e1c;
+  --spirit-knot: #1d1408;
+  --spirit-glow: none;
+  --ink-pen: #a2781b;
+  --font-display: 'Song Myung', serif;
+  --font-body: 'Nanum Myeongjo', serif;
+  --font-hand: 'Nanum Pen Script', cursive;
+  --btn-bg: linear-gradient(180deg, #fffaf0, #f3e3b5);
+  --btn-ink: #3a2e1c;
+  --btn-border: 1px solid #c9a227;
+  --btn-glow: 0 0 40px #fff6d0, 0 0 2px #c9a227;
+  --radius: 999px;
+}
+
+/* 3 ─ 전도지 복사본 ─ the xeroxed handout: ballpoint, red seal, ruled form */
+[data-theme="photocopy"] {
+  --bg: #d9d7d0;
+  --paper: #f3f1ea;
+  --ink: #1b1b1b;
+  --ink-soft: #6b6a66;
+  --accent: #b3261e;          /* 도장 red */
+  --accent-2: #233b8f;        /* ballpoint blue */
+  --gold: #8b6f2a;
+  --figure-ink: #1b1b1b;
+  --spirit-ink: #1b1b1b;
+  --spirit-knot: #0d0d0d;
+  --spirit-glow: none;
+  --ink-pen: #233b8f;
+  --font-display: 'Gowun Batang', serif;
+  --font-body: 'Gowun Batang', serif;
+  --font-hand: 'Nanum Pen Script', cursive;
+  --btn-bg: #f3f1ea;
+  --btn-ink: #1b1b1b;
+  --btn-border: 1.5px solid #1b1b1b;
+  --btn-glow: 3px 3px 0 #1b1b1b;
+  --radius: 0;
+}
+
+/* 4 ─ 무신도 성화 ─ shrine painting × gilded icon: cinnabar, indigo, malachite, gold leaf */
+[data-theme="mushindo"] {
+  --bg: #1a1630;
+  --paper: #efe4cc;
+  --ink: #efe4cc;
+  --ink-soft: #b9a98a;
+  --accent: #b22a1e;          /* 주홍 cinnabar */
+  --accent-2: #2f6b4f;        /* 석록 malachite */
+  --gold: #d4af37;
+  --figure-ink: #2a1d10;
+  --spirit-ink: #1d2a5a;
+  --spirit-knot: #8f1c14;
+  --spirit-glow: none;
+  --ink-pen: #8f1c14;
+  --font-display: 'Hahmlet', serif;
+  --font-body: 'Noto Serif KR', serif;
+  --font-hand: 'Nanum Pen Script', cursive;
+  --btn-bg: linear-gradient(180deg, #e6c55a, #b8902a);
+  --btn-ink: #2a1d10;
+  --btn-border: 2px solid #2a1d10;
+  --btn-glow: 0 0 0 4px #b22a1e, 0 0 0 6px #d4af37;
+  --radius: 6px;
+}
