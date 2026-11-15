@@ -28,6 +28,10 @@ export const SERVICES = [
       ko: '터치패드 위 손끝에 임하는 성령의 압력으로 영·혼·육 전신을 진단합니다.',
       en: 'Lay your hand on the touchpad: through the pressure of the Spirit on your fingertip, we diagnose spirit, soul and body.',
     },
+    blurbPhone: {
+      ko: '화면 위 손끝에 임하는 성령의 압력으로 영·혼·육 전신을 진단합니다.',
+      en: 'Press the screen with your finger: through the pressure of the Spirit on your fingertip, we diagnose spirit, soul and body.',
+    },
     includes: { ko: ['영·혼·육 7부위 진단', '심령 충만도 측정', '깊은 회개', '세력 내보냄'], en: ['7 body regions', 'Spirit fullness gauge', 'Deep repentance', 'Casting out'] },
     status: 'open',
   },

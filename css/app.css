@@ -105,7 +105,9 @@ body { background: var(--bg); color: var(--ink); font-family: var(--font-body); 
 .screen [hidden] { display: none !important; }
 
 /* ── touch ── */
-.screen-touch { cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; }
+.screen-touch { cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+.screen-touch.is-phone { cursor: auto; touch-action: manipulation; } /* phone: only the box is pressed */
+.screen-touch.is-phone .touch-pad { touch-action: none; }
 .screen-touch .btn { cursor: pointer; }
 .touch-pad { position: relative; width: min(760px, 86vw); height: min(46vh, 440px); background: var(--paper); border: 3px solid var(--ink); cursor: pointer; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; outline: none; --wave-ink: var(--accent); --wave-ghost: var(--accent-2); }
 .touch-glow { --p: 0; position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
@@ -115,6 +117,7 @@ body { background: var(--bg); color: var(--ink); font-family: var(--font-body); 
 .touch-wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 42%; }
 .touch-hint { position: absolute; inset: 30px 0 24%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; pointer-events: none; transition: opacity .35s; z-index: 1; }
 .press-hint { flex: 1 1 0; min-height: 0; width: auto; max-width: 60%; overflow: visible; }
+.press-hint.is-phone { flex: 0 1 auto; height: 58%; }
 .press-hint .ph-keys rect { fill: none; stroke: var(--ink-soft); stroke-width: 1; opacity: .55; }
 .press-hint .ph-pad { fill: var(--bg); stroke: var(--ink); stroke-width: 2.4; }
 .press-hint .ph-hand path { fill: var(--paper); stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }

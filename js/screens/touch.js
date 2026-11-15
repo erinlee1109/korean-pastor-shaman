@@ -9,35 +9,44 @@ import { COPY } from '../data/copy.js';
 import { createPressureSource, pressureCues } from '../sense/pressure.js';
 import { createWaveform } from '../render/waveform.js';
 import { rays, flame, progressBar, setProgress, pressHint } from '../render/motifs.js';
+import { isTouchDevice } from '../lib/device.js';
 
 export default {
   id: 'touch',
   mount(root, { t, go, poke, config, dev }) {
     const C = config.touch;
+    // phones/tablets: press and hold the box with a finger (no touchpad there)
+    const phone = isTouchDevice();
+    const L = phone
+      ? { instruct: COPY.touch.instructPhone, nudge: COPY.touch.nudgePhone }
+      : { instruct: COPY.touch.instruct, nudge: COPY.touch.nudge };
     root.innerHTML = `
-      <section class="screen screen-touch">
+      <section class="screen screen-touch ${phone ? 'is-phone' : ''}">
         <h1 class="display display-sm">${t(COPY.touch.title)}</h1>
         <div class="touch-pad" data-state="idle" tabindex="0">
           <div class="touch-glow">${rays({ size: 420, n: 12, inner: 0.35, width: 6, cls: 'touch-rays' })}${flame({ size: 90, cls: 'touch-flame' })}</div>
           <div class="touch-freq">${t(COPY.touch.frequency, {}, { inline: true })}</div>
-          <div class="touch-hint">${pressHint()}<p class="touch-hint-label">${t(COPY.touch.hint, {}, { inline: true })}</p></div>
+          <div class="touch-hint">${pressHint({ phone })}<p class="touch-hint-label">${t(COPY.touch.hint, {}, { inline: true })}</p></div>
           <canvas class="touch-wave"></canvas>
         </div>
         ${progressBar()}
-        <p class="lead touch-msg" aria-live="polite">${t(COPY.touch.instruct)}</p>
+        <p class="lead touch-msg" aria-live="polite">${t(L.instruct)}</p>
         <button class="btn btn-quiet" data-back>${t(COPY.touch.back)}</button>
         ${dev ? '<p class="fineprint" data-kind></p>' : ''}
       </section>`;
 
     const $ = (s) => root.querySelector(s);
     const pad = $('.touch-pad'), msg = $('.touch-msg'), bar = $('.obang-progress'), glow = $('.touch-glow');
-    // the whole screen is the pad: press anywhere (except on buttons)
-    const pressure = createPressureSource($('.screen-touch'), { ...C, ignore: 'button, a' });
+    // desktop: the whole screen is the pad (press anywhere except buttons);
+    // phone: just the box, always the simulated hold
+    const pressure = phone
+      ? createPressureSource(pad, { ...C, mode: 'hold' })
+      : createPressureSource($('.screen-touch'), { ...C, ignore: 'button, a' });
     const wave = createWaveform($('.touch-wave'), () => pressure.value, C.waveform);
     let pressed = 0, last = performance.now(), raf = 0, finished = false, msgKey = 'instruct', everTouched = false, lastPoke = 0;
     const shownAt = performance.now();
     const timers = [];
-    const say = (key) => { if (key !== msgKey) { msgKey = key; msg.innerHTML = t(COPY.touch[key]); } };
+    const say = (key) => { if (key !== msgKey) { msgKey = key; msg.innerHTML = t(L[key] || COPY.touch[key]); } };
 
     function finish() {
       if (finished) return;
@@ -76,7 +85,7 @@ export default {
     $('[data-back]').onclick = () => go('services');
     const onKey = (e) => { if (dev && e.key === 'Enter') finish(); };
     addEventListener('keydown', onKey);
-    pad.focus();
+    if (!phone) pad.focus(); // focusing on a phone can scroll / pop the keyboard
 
     return () => {
       finished = true;

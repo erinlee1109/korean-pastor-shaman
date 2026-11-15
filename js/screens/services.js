@@ -4,10 +4,12 @@ import { SERVICES } from '../data/services.js';
 import { wonWords } from '../lib/ko.js';
 import { zipLists, priceEntry } from '../lib/i18n.js';
 import { stripe, chip } from '../render/motifs.js';
+import { isTouchDevice } from '../lib/device.js';
 
 export default {
   id: 'services',
   mount(root, { t, go }) {
+    const phone = isTouchDevice();
     const card = (s, i) => {
       const closed = s.status !== 'open';
       const tag = s.status === 'soldout' ? COPY.services.soldout : s.status === 'restricted' ? COPY.services.restricted : null;
@@ -18,7 +20,7 @@ export default {
           <div class="service-body">
             ${s.badge ? `<span class="badge">${t(s.badge, {}, { inline: true })}</span>` : ''}
             <h2>${chip(i)}<span>${t(s.name)}</span></h2>
-            <p class="blurb">${t(s.blurb)}</p>
+            <p class="blurb">${t((phone && s.blurbPhone) || s.blurb)}</p>
             ${includes.length ? `<ul>${includes.map((x) => `<li>${t(x, {}, { inline: true })}</li>`).join('')}</ul>` : ''}
             <button class="btn price ${s.id === 'gift' ? 'btn-dark' : ''}" ${closed ? 'disabled' : ''} data-pay="${s.id}">
               ${t(priceEntry(s.price, wonWords))}

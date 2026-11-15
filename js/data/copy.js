@@ -43,6 +43,9 @@ export const COPY = {
     instruct: { en: 'Lay your hand on the touchpad below the keyboard and press down. Do not let go.', ko: '키보드 아래 터치패드에 손을 얹고 꾹 누르십시오. 떼지 마십시오.' },
     nudge: { en: 'Press anywhere on the touchpad. Hold it down.', ko: '터치패드 아무 곳이나 꾹 누르고 계십시오.' },
     hint: { en: 'PRESS & HOLD', ko: '꾹 누르기' },
+    // phones / tablets: there is no touchpad, so the box itself is pressed
+    instructPhone: { en: 'Press and hold the box above with your finger. Do not let go.', ko: '위의 네모 칸을 손가락으로 꾹 누르고 계십시오. 떼지 마십시오.' },
+    nudgePhone: { en: 'Press inside the box. Hold it down.', ko: '네모 칸 안을 꾹 누르고 계십시오.' },
     hold: { en: 'Do not stop. The spirits are surfacing', ko: '멈추지 마십시오. 영이 드러나고 있습니다' },
     deeper: { en: 'Deeper. Press deeper', ko: '더 깊이. 더 깊이 누르십시오' },
     lifted: { en: 'Lift your hand and the spirits hide', ko: '손을 떼면 영이 숨습니다' },

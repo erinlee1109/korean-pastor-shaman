@@ -54,7 +54,20 @@ export function setProgress(el, p) {
 /** "Press & hold" picture for the touch screen: laptop keys, the touchpad
  *  below them, and a finger pressing into it with rings pulsing out.
  *  Pen-line style; colours from CSS (.press-hint in app.css). */
-export function pressHint({ cls = '' } = {}) {
+export function pressHint({ cls = '', phone = false } = {}) {
+  // phone: just the finger pressing (no laptop keys / touchpad to point at)
+  if (phone) {
+    return `<svg class="press-hint is-phone ${cls}" aria-hidden="true" viewBox="72 82 88 88">
+    <g class="ph-rings"><circle cx="110" cy="99" r="8"/><circle cx="110" cy="99" r="8"/></g>
+    <g class="ph-hand">
+      <path d="M103 170 L103 104 C103 94 117 94 117 104 L117 134
+               C117 127 129 127 129 135 C129 129 141 129 141 137
+               C141 132 152 133 152 141 L152 170"/>
+      <path d="M103 142 C95 134 85 137 88 146 C91 154 99 160 103 170"/>
+      <path class="ph-nail" d="M106 103 C106 99 114 99 114 103"/>
+    </g>
+  </svg>`;
+  }
   const keys = [];
   for (let r = 0; r < 3; r++) for (let c = 0; c < 10; c++) {
     keys.push(`<rect x="${26.5 + c * 17}" y="${16 + r * 12}" width="14" height="9" rx="1.5"/>`);

@@ -30,7 +30,8 @@ export function createPressureSource(el, cfg = {}) {
   const minP = cfg.minPressure ?? 0.08;
   // presses that start on these (e.g. a "back" button) are left alone
   const skip = (e) => !!(cfg.ignore && e.target?.closest?.(cfg.ignore));
-  let kind = detectPressureKind();
+  // cfg.mode 'hold' → always the simulated hold (phones: a resting finger has no usable pressure)
+  let kind = cfg.mode === 'hold' ? 'hold' : detectPressureKind();
   let raw = 0, value = 0, touching = false, downAt = 0, lastMove = 0, moveEnergy = 0, keySim = false;
   let firstDownAt = 0, pressedMs = 0, lastTick = performance.now();
   const samples = [];
@@ -52,9 +53,15 @@ export function createPressureSource(el, cfg = {}) {
       if (skip(e)) return;
       try { el.setPointerCapture?.(e.pointerId); } catch { /* pointer already gone: release still comes via window */ }
       press();
-      // 0 / 0.5 means the device has no real pressure sensor
-      kind = e.pressure > 0 && e.pressure !== 0.5 ? 'pointer' : 'hold';
+      // Fingers report a flat or meaningless pressure and send no events while
+      // resting, so touch is always the simulated hold. Pens/mice: 0 or 0.5
+      // means no real sensor.
+      if (cfg.mode === 'hold' || e.pointerType === 'touch') kind = 'hold';
+      else kind = e.pressure > 0 && e.pressure !== 0.5 ? 'pointer' : 'hold';
+      if (kind === 'pointer') raw = e.pressure;
     });
+    // long-press on a phone: no context menu / callout
+    on(el, 'contextmenu', (e) => e.preventDefault());
     on(el, 'pointermove', (e) => {
       if (!touching) return;
       if (kind === 'pointer') raw = e.pressure;
