@@ -1,7 +1,7 @@
 // Revival-poster opening: gold rays, a tongue of fire, the five-colour band.
-import { COPY } from '../data/copy.js';
-import { rays, flame, stripe } from '../render/motifs.js';
-import { preloadFaceModel } from '../sense/face.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { rays, flame, stripe } from '../render/motifs.js?v=ecee5c41b3';
+import { preloadFaceModel } from '../sense/face.js?v=ecee5c41b3';
 
 export default {
   id: 'intro',

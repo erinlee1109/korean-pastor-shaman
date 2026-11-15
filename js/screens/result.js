@@ -2,15 +2,15 @@
 // header → figures → a few named spirits → the repentance list (the focus);
 // upsell beside it. An aftercare button "receives the offering" (nothing is
 // charged), shows a Hallelujah receipt, then returns to the start.
-import { COPY } from '../data/copy.js';
-import { PART_BY_ID } from '../data/bodyparts.js';
-import { SERVICES, AFTERCARE } from '../data/services.js';
-import { renderPartCard } from '../render/figure.js';
-import { diagnose } from '../logic/diagnosis.js';
-import { wonWords } from '../lib/ko.js';
-import { priceEntry, dateEntry } from '../lib/i18n.js';
-import { stripe, chip, flame, rays, progressBar, setProgress } from '../render/motifs.js';
-import { freshSeed } from '../lib/rng.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { PART_BY_ID } from '../data/bodyparts.js?v=ecee5c41b3';
+import { SERVICES, AFTERCARE } from '../data/services.js?v=ecee5c41b3';
+import { renderPartCard } from '../render/figure.js?v=ecee5c41b3';
+import { diagnose } from '../logic/diagnosis.js?v=ecee5c41b3';
+import { wonWords } from '../lib/ko.js?v=ecee5c41b3';
+import { priceEntry, dateEntry } from '../lib/i18n.js?v=ecee5c41b3';
+import { stripe, chip, flame, rays, progressBar, setProgress } from '../render/motifs.js?v=ecee5c41b3';
+import { freshSeed } from '../lib/rng.js?v=ecee5c41b3';
 
 const fresh = { serviceId: null, flow: null, signals: null, diagnosis: null };
 

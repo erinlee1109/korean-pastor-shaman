@@ -1,10 +1,10 @@
 // Price menu. Each card: colour chip, name, blurb, what's included, offering button.
-import { COPY } from '../data/copy.js';
-import { SERVICES } from '../data/services.js';
-import { wonWords } from '../lib/ko.js';
-import { zipLists, priceEntry } from '../lib/i18n.js';
-import { stripe, chip } from '../render/motifs.js';
-import { isTouchDevice } from '../lib/device.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { SERVICES } from '../data/services.js?v=ecee5c41b3';
+import { wonWords } from '../lib/ko.js?v=ecee5c41b3';
+import { zipLists, priceEntry } from '../lib/i18n.js?v=ecee5c41b3';
+import { stripe, chip } from '../render/motifs.js?v=ecee5c41b3';
+import { isTouchDevice } from '../lib/device.js?v=ecee5c41b3';
 
 export default {
   id: 'services',

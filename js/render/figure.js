@@ -2,8 +2,8 @@
 // Renders a body part (from bodyparts.js) with spirits on it.
 // Output is an SVG string; colours come from CSS (css/figure.css + theme).
 // ─────────────────────────────────────────────────────────────
-import { makeRng, hashString, clamp } from '../lib/rng.js';
-import { coil, knot, curls, samplePath } from './spirits.js';
+import { makeRng, hashString, clamp } from '../lib/rng.js?v=ecee5c41b3';
+import { coil, knot, curls, samplePath } from './spirits.js?v=ecee5c41b3';
 
 let _uid = 0;
 

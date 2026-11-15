@@ -5,7 +5,7 @@
 //   • knot  — a dense scribbled ball, where spirits "nest"
 // Pure functions → SVG path strings. No DOM needed (works in node too).
 // ─────────────────────────────────────────────────────────────
-import { makeRng } from '../lib/rng.js';
+import { makeRng } from '../lib/rng.js?v=ecee5c41b3';
 
 const TAU = Math.PI * 2;
 

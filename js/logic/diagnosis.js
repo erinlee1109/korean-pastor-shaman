@@ -8,12 +8,12 @@
 //   faceKnots   [[x,y]] — head-front coords where the face "showed" spirits
 //   pressure    {mean, peak, steadiness} 0..1 (touch)
 // ─────────────────────────────────────────────────────────────
-import { CONFIG } from '../config.js';
-import { makeRng } from '../lib/rng.js';
-import { fill } from '../lib/ko.js';
-import { BODY_PARTS, partsFor } from '../data/bodyparts.js';
-import { SPIRITS } from '../data/spirits.js';
-import { REPENT_ITEMS, REPENT_TEMPLATES } from '../data/repent.js';
+import { CONFIG } from '../config.js?v=ecee5c41b3';
+import { makeRng } from '../lib/rng.js?v=ecee5c41b3';
+import { fill } from '../lib/ko.js?v=ecee5c41b3';
+import { BODY_PARTS, partsFor } from '../data/bodyparts.js?v=ecee5c41b3';
+import { SPIRITS } from '../data/spirits.js?v=ecee5c41b3';
+import { REPENT_ITEMS, REPENT_TEMPLATES } from '../data/repent.js?v=ecee5c41b3';
 
 function weightedSample(rng, items, n, weightOf) {
   const pool = items.slice();

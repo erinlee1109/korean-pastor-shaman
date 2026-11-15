@@ -1,9 +1,9 @@
 // The "processing" beat between sensing and result. Computes the diagnosis,
 // cycles the discerning lines, then moves to 'result' on its own.
-import { COPY } from '../data/copy.js';
-import { diagnose } from '../logic/diagnosis.js';
-import { rays, flame, progressBar, setProgress } from '../render/motifs.js';
-import { makeRng, freshSeed } from '../lib/rng.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { diagnose } from '../logic/diagnosis.js?v=ecee5c41b3';
+import { rays, flame, progressBar, setProgress } from '../render/motifs.js?v=ecee5c41b3';
+import { makeRng, freshSeed } from '../lib/rng.js?v=ecee5c41b3';
 
 export default {
   id: 'ritual',

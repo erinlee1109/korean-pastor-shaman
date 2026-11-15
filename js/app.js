@@ -5,14 +5,14 @@
 // Flow: intro → services → camera|touch → ritual → result → intro
 // Sensor screens and ritual advance on their own; no "next" buttons.
 // ─────────────────────────────────────────────────────────────
-import { CONFIG } from './config.js';
-import { t, getLang } from './lib/i18n.js';
-import intro from './screens/intro.js';
-import services from './screens/services.js';
-import camera from './screens/camera.js';
-import touch from './screens/touch.js';
-import ritual from './screens/ritual.js';
-import result from './screens/result.js';
+import { CONFIG } from './config.js?v=ecee5c41b3';
+import { t, getLang } from './lib/i18n.js?v=ecee5c41b3';
+import intro from './screens/intro.js?v=ecee5c41b3';
+import services from './screens/services.js?v=ecee5c41b3';
+import camera from './screens/camera.js?v=ecee5c41b3';
+import touch from './screens/touch.js?v=ecee5c41b3';
+import ritual from './screens/ritual.js?v=ecee5c41b3';
+import result from './screens/result.js?v=ecee5c41b3';
 
 const SCREENS = Object.fromEntries([intro, services, camera, touch, ritual, result].map((s) => [s.id, s]));
 

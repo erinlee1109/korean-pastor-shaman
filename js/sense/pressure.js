@@ -18,7 +18,7 @@
 //                 duration = seconds actually pressed; elapsed = first press → now
 //   p.destroy()
 // ─────────────────────────────────────────────────────────────
-import { clamp, hashString } from '../lib/rng.js';
+import { clamp, hashString } from '../lib/rng.js?v=ecee5c41b3';
 
 export function detectPressureKind() {
   if (typeof MouseEvent !== 'undefined' && 'WEBKIT_FORCE_AT_MOUSE_DOWN' in MouseEvent) return 'force';
@@ -33,7 +33,7 @@ export function createPressureSource(el, cfg = {}) {
   // cfg.mode 'hold' → always the simulated hold (phones: a resting finger has no usable pressure)
   let kind = cfg.mode === 'hold' ? 'hold' : detectPressureKind();
   let raw = 0, value = 0, touching = false, downAt = 0, lastMove = 0, moveEnergy = 0, keySim = false;
-  let firstDownAt = 0, pressedMs = 0, lastTick = performance.now();
+  let firstDownAt = 0, pressedMs = 0, lastTick = performance.now(), touchHold = false;
   const samples = [];
   let raf = 0;
   const off = [];
@@ -70,8 +70,22 @@ export function createPressureSource(el, cfg = {}) {
       lastMove = now;
     });
     on(window, 'pointerup', release);
-    on(window, 'pointercancel', release);
+    // a cancelled pointer while the finger is still down (iOS) is not a lift
+    on(window, 'pointercancel', () => { if (!touchHold) release(); });
   }
+  // Fingers, any mode (iPhone Safari above all): claim the touch so the
+  // browser's long-press gestures (text selection, magnifier, link preview,
+  // scroll) can't start and cancel the press. Pointer events still fire.
+  on(el, 'touchstart', (e) => {
+    if (skip(e)) return;
+    e.preventDefault();
+    touchHold = true;
+    if (!touching) press();
+  }, { passive: false });
+  const touchEnd = (e) => { if (touchHold && !e.touches.length) { touchHold = false; release(); } };
+  on(window, 'touchend', touchEnd);
+  on(window, 'touchcancel', touchEnd);
+
   // keyboard simulation
   on(window, 'keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); keySim = true; press(); } });
   on(window, 'keyup', (e) => { if (e.code === 'Space') { keySim = false; release(); } });
@@ -79,7 +93,7 @@ export function createPressureSource(el, cfg = {}) {
   const tick = (now) => {
     const dt = Math.min(100, now - lastTick); lastTick = now;
     const k = dt / (1000 / 60); // 1 at 60 Hz, 0.5 at 120 Hz: same feel on any display
-    if (touching && (keySim || kind === 'hold' || kind === 'pointer?')) {
+    if (touching && (keySim || touchHold || kind === 'hold' || kind === 'pointer?')) {
       const held = (now - downAt) / 1000;
       const ramp = 1 - Math.exp(-held / 2.5);              // slow rise
       const breath = 0.12 * Math.sin(now / 900) + 0.06 * Math.sin(now / 237);

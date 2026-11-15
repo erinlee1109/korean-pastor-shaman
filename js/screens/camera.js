@@ -4,10 +4,10 @@
 // and goes to 'ritual' on its own. No photo is taken (see sense/face.js).
 // ?dev → press Enter to finish instantly.
 // ─────────────────────────────────────────────────────────────
-import { COPY } from '../data/copy.js';
-import { PART_BY_ID } from '../data/bodyparts.js';
-import { createFaceSensor, isCentered, blendCues, landmarksToKnots, geometrySeed } from '../sense/face.js';
-import { rays, progressBar, setProgress } from '../render/motifs.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { PART_BY_ID } from '../data/bodyparts.js?v=ecee5c41b3';
+import { createFaceSensor, isCentered, blendCues, landmarksToKnots, geometrySeed } from '../sense/face.js?v=ecee5c41b3';
+import { rays, progressBar, setProgress } from '../render/motifs.js?v=ecee5c41b3';
 
 export default {
   id: 'camera',

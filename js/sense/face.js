@@ -12,7 +12,7 @@
 //   face.onFrame(({present, box, landmarks, blendshapes}) => …);
 //   face.stop();
 // ─────────────────────────────────────────────────────────────
-import { hashString } from '../lib/rng.js';
+import { hashString } from '../lib/rng.js?v=ecee5c41b3';
 
 // The model is loaded once and reused for every visitor (loading takes seconds).
 let _landmarker = null;

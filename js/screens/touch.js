@@ -5,11 +5,11 @@
 // 'ritual' on its own. Real pressure in Safari (Force Touch); simulated
 // elsewhere; SPACE simulates too. ?dev → Enter finishes instantly.
 // ─────────────────────────────────────────────────────────────
-import { COPY } from '../data/copy.js';
-import { createPressureSource, pressureCues } from '../sense/pressure.js';
-import { createWaveform } from '../render/waveform.js';
-import { rays, flame, progressBar, setProgress, pressHint } from '../render/motifs.js';
-import { isTouchDevice } from '../lib/device.js';
+import { COPY } from '../data/copy.js?v=ecee5c41b3';
+import { createPressureSource, pressureCues } from '../sense/pressure.js?v=ecee5c41b3';
+import { createWaveform } from '../render/waveform.js?v=ecee5c41b3';
+import { rays, flame, progressBar, setProgress, pressHint } from '../render/motifs.js?v=ecee5c41b3';
+import { isTouchDevice } from '../lib/device.js?v=ecee5c41b3';
 
 export default {
   id: 'touch',

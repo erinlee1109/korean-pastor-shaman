@@ -4,7 +4,7 @@
 // Missing translations are tagged data-missing="ko|en" and warned in the
 // console, so tools/check-i18n can find them.
 // ─────────────────────────────────────────────────────────────
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../config.js?v=ecee5c41b3';
 
 let lang = new URLSearchParams(location.search).get('lang') || CONFIG.lang;
 export const getLang = () => lang;
